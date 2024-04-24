@@ -354,14 +354,12 @@ ul[role="presentation"] li {
 .highlight-card {
     background: var(--alternative-color);
     color: var(--color-alternative-contrast);
-    border-radius: 25px;
     overflow: hidden;
 }
 
 .highlight-card .highlight-image {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: orange;
     font-size: 0;
     line-height: 0;
 }
@@ -371,7 +369,6 @@ ul[role="presentation"] li {
     height: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    background: red;
 }
 
 .highlight-card-description {
@@ -735,8 +732,24 @@ h1 {
     gap: 1rem;
 }
 
+@media (max-width: 800px) {
+    .image-carousel {
+        display: block;
+    }
+
+    .image-carousel img {
+        padding: 1rem 0;
+    }
+}
+
 .image-carousel[data-disable-grid] {
     display: block;
+}
+
+.image-carousel[data-disable-grid] img {
+    padding: 1rem 0;
+    height: auto;
+    aspect-ratio: initial;
 }
 
 .image-carousel[data-count="2"] {
@@ -799,6 +812,26 @@ h1 {
     max-width: 100%;
 }
 
+.columns.center {
+    align-items: center;
+}
+
+.no-top-padding .clear {
+    padding-top: 1em !important;
+}
+
+.project-main-text .section-primary .clear, .project-main-text .section-secondary .clear {
+    padding: 4em 0;
+}
+
+.project-main-text .section-primary, .project-main-text .section-secondary {
+    padding: 0;
+}
+
+.project-main-text a {
+    color: inherit;
+}
+
 .columns .section {
     flex: 1;
 }
@@ -815,6 +848,13 @@ h1 {
 
 .columns .section.trice-width {
     flex: 3;
+}
+
+
+@media (max-width: 900px) {
+    .columns {
+        display: block;
+    }
 }
 
 .video-center {
@@ -858,23 +898,34 @@ h1 {
 
 .image-caption {
     opacity: 0.9;
-    text-align: center;
+    text-align: left;
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 0.8em !important;
     line-height: 1.3em;
+    padding-top: 1rem;
 }
 
 .image-with-caption {
     display: flex;
     flex-direction: column;
     margin: 1em auto;
-    align-items: center;
+    align-items: space-around;
     max-width: 65%;
+}
+
+.image-with-caption > p {
+    margin: 0;
+    padding: 0;
+}
+
+.image-with-caption picture {
+    font-size: 0;
 }
 
 .image-with-caption img {
     width: 100%;
     height: auto;
+    aspect-ratio: initial;
 }
 
 .site-project-header {
@@ -919,6 +970,16 @@ body {
 
 /** SINGLE PAGE, EVEN SMALLER GRID */
 
-.site-project-single-section .u-container {
+.site-project-single-section .u-container:not(.section-carousel) {
     max-width: calc(0.6 * var(--grid-max-width));
+}
+
+.site-project-single-section h2 {
+    padding-bottom: 0rem;
+    margin: 0;
+}
+
+.site-project-single-section h3 {
+    padding-bottom: 0rem;
+    margin-bottom: 0.5em;
 }

@@ -2,19 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Amazing World of Rae</title>
+    <title>Raemarie Lee Design</title>
     <meta name="generator" content="Eleventy">
-    <!--Meta For No Index-->
-    <meta name="robots" content="noindex, Nofollow, Noimageindex">
 
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- Slick Carousel -->
-    
-
-  
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
@@ -26,15 +19,31 @@
     <link href="/assets/css/custom.css" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="/assets/images/favIcon.png" type="image/x-icon">
-    <link rel="icon" href="/assets/images/favIcon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/FavIcon.png" type="image/x-icon">
+    <link rel="icon" href="/assets/FavIcon.png" type="image/x-icon">
+
+    <!-- OG TAGS -->
+
+    <meta property="og:title" content="Raemarie Lee Design">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://raemarielee.me">
+    <meta property="og:image" content="https://raemarielee.me/assets/preview.png">
+
+    <!-- Metatags -->
+    <meta name="title" content="Raemarie Lee Design">
+    <meta name="description" content="from advertising wordsmith to end-user advocate">
+    <meta name="keywords" content="design, designer, figma, ux, ui, copywriting">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Raemarie Lee">
 
 
 
   <!-- CUSTOM FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
   </head>
 
@@ -90,23 +99,23 @@
       <div class="u-container">
         <div class="site-project-single">
           <div class="site-project-single-description">
-            <div class="section-secondary"><div class="clear">
+            <div class="section-secondary no-top-padding"><div class="clear">
 <div class="callout">I collaborated with a small team of mobile engineers to  create an accessible way for our low vision or blind users to photograph  their identity documents. The document photo was crucial for when they used our service to verify their identity online – so we wanted to help them take a good one every time. </div>
 <h2>The user problem</h2>
 <p>Onfido is an online identity verification service that helps businesses onboard customers (e.g. when setting up a bank account). We would get them to take a live picture of their photo ID along with a selfie at signup.</p>
-<div class="columns">
+<div class="columns center">
 <div class="section">
 <p><picture><source type="image/webp" srcset="/portfolio/accessible-camera/rwvalgaxQA-592.webp 592w"><img loading="lazy" decoding="async" src="/portfolio/accessible-camera/rwvalgaxQA-592.jpeg" alt="The existing experience required users to manually press the “shutter” button." width="592" height="1282"></picture>
 <span class="image-caption">The existing experience required users to manually press the “shutter” button.</span></p>
 </div>
-<div class="section trice-width">
+<div class="section twice-width">
 <blockquote>
 <p>A key step in our flow <strong>uses your mobile phone to manually take a picture of your photo ID</strong>. We knew from anecdotal client feedback and accessibility audits that this step caused the most friction for our visually impaired users.</p>
 </blockquote>
+</div>
+</div>
 <p>Although our existing doc capture experience complied with <a href="https://www.w3.org/WAI/WCAG21/quickref/">WCAG accessibility guidelines</a>, we realised that visually impaired users struggled to complete this step independently as they’d often need a sighted person to ensure that the photograph was not blurred or cropped.</p>
 </div>
-</div>
-</div></div>
 <div class="section-primary"><div class="clear">
 <h3>Pain points to solve 💢</h3>
 <ul>
@@ -120,12 +129,15 @@ OUR GOAL
 Develop a document capture experience which helps visually impaired users take good quality photos on their own.  
 </div>
 </div></div>
+<div class="section-secondary"><div class="clear">
 <h2>Proposed improvements</h2>
 <ol>
 <li><strong>Detect the document’s position in real time</strong> using built-in tech on iOS and Android phones</li>
 <li>Provide users with <strong>live screen reader guidance</strong> on how to move their phone</li>
 <li><strong>Automatically take a picture</strong> when we think the image looks good enough</li>
 </ol>
+</div></div>
+<div class="section-primary"><div class="clear">
 <h2>Design process</h2>
 <section>
       <input id="process-6228692267231340" class="toggle" type="checkbox">
@@ -205,17 +217,19 @@ Although we received lots of really insightful feedback and took many suggestion
 <p>Because the <em>visual</em> instructions were designed for <em>sighted users</em>, we deliberately kept the text short to make them easier to scan. A sighted user would then likely glean additional context through visual cues (e.g. a card outline implies that the document should fit within it).</p>
 <p>However, <strong>visually impaired users would need a lot more detailed <em>audio</em> guidance</strong> – so I reworked the screen reader wording to make sure that there was context for visually impaired users to understand what was happening on the screen and exactly what they needed to do.</p>
 <div class="image-with-caption">
-<p><picture><source type="image/webp" srcset="/portfolio/accessible-camera/Ejr3xhbwGu-631.webp 631w"><img loading="lazy" decoding="async" src="/portfolio/accessible-camera/Ejr3xhbwGu-631.jpeg" alt="Screen reader users would hear more detailed instructions than what was shown on screen" width="631" height="913"></picture></p>
-<p><span class="image-caption">Screen reader users would hear more detailed instructions than what was shown on screen</span></p>
+<p><picture><source type="image/webp" srcset="/portfolio/accessible-camera/Ejr3xhbwGu-631.webp 631w"><img loading="lazy" decoding="async" src="/portfolio/accessible-camera/Ejr3xhbwGu-631.jpeg" alt="Screen reader users would hear more detailed instructions than what was shown on screen" width="631" height="913"></picture>
+<span class="image-caption">Screen reader users would hear more detailed instructions than what was shown on screen</span></p>
 </div>
 <h4>💡 Feedback #2 – relying on audio feedback made it difficult to react quickly</h4>
 <p>Some of our internal testers found themselves stuck in a loop of errors as they moved so quickly that they went past the spot when they were meant to keep still (i.e. the camera was at the optimal position and distance).
 So we added haptic feedback at the most important moments, such as when the document was at the correct distance away from the camera.</p>
 <div class="image-with-caption">
-<p><picture><source type="image/webp" srcset="/portfolio/accessible-camera/CJjwBoy6W5-966.webp 966w"><img loading="lazy" decoding="async" src="/portfolio/accessible-camera/CJjwBoy6W5-966.jpeg" alt="Adding haptic feedback to just the key moments " width="966" height="848"></picture></p>
-<p><span class="image-caption">Adding haptic feedback to just the key moments </span></p>
+<p><picture><source type="image/webp" srcset="/portfolio/accessible-camera/CJjwBoy6W5-966.webp 966w"><img loading="lazy" decoding="async" src="/portfolio/accessible-camera/CJjwBoy6W5-966.jpeg" alt="Adding haptic feedback to just the key moments " width="966" height="848"></picture>
+<span class="image-caption">Adding haptic feedback to just the key moments </span></p>
 </div>
 </div></section>
+</div></div>
+<div class="section-secondary"><div class="clear">
 <h2>What we delivered</h2>
 <p>In the end, we delivered all the key improvements that we proposed – and we accomplished this within 6 weeks, across 3 timezones and with zero prior experience building an accessible mobile camera app.</p>
 <h3>The 3 key improvements</h3>
@@ -245,7 +259,7 @@ So we added haptic feedback at the most important moments, such as when the docu
           </div>
         </div>
       </div>
-      </section>
+      </div></div></div></section>
   
 </section>
   
@@ -263,10 +277,6 @@ So we added haptic feedback at the most important moments, such as when the docu
       
     </footer>
   
-    <!-- <script src="js/vendor.js"></script> -->
-    <script src="/assets/vendor/jQuery/jquery.min.js"></script>
-    <script src="/assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="/assets/js/script.js"></script>
     <script>
       const navLinks = document.querySelector('.mobile-menu').addEventListener('click', () => {
         const navLinks = document.querySelector('.navigation-links')
