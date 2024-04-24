@@ -299,6 +299,7 @@ ul[role="presentation"] li {
 .project-card h3 {
     padding: 0.5em 0 0.75em 0;
     margin: 0;
+    color: var(--color-contrast);
 }
 
 .project-card p {
@@ -385,13 +386,13 @@ ul[role="presentation"] li {
     gap: 3em;
 }
 
-@container grid (max-width: 1100px) {
+@container grid (max-width: 1300px) {
     .highlights-grid {
         --elements: 2;
     }
 }
 
-@container grid (max-width: 500px) {
+@container grid (max-width: 700px) {
     .highlights-grid {
         --elements: 1;
     }
@@ -584,6 +585,7 @@ h1 {
 .career-role {
     font-weight: bold;
     font-size: 1.2em;
+    color: var(--color-primary);
 }
 
 .role-tags {
@@ -632,11 +634,11 @@ h1 {
     --main-color: var(--color-primary);
     --alternative-color: var(--color-secondary);
     --color-contrast: #FFF;
-    --color-alternative-contrast: #000;
+    --color-alternative-contrast: var(--color-primary);
 }
 
 .section-primary h2, .section-secondary h2 {
-    color: var(--color-contrast);
+    color: var(--alternative-color);
 }
 
 
@@ -723,12 +725,14 @@ h1 {
     padding: 0;
     width: 100%;
     display: grid;
+    font-size: 0;
+    line-height: 0;
     grid: 
         "a a a a b b" 
         "a a a a c c"
         "d d d e e e"
         "f f f g g g";
-    gap: 1em;
+    gap: 1rem;
 }
 
 .image-carousel[data-disable-grid] {
@@ -856,7 +860,7 @@ h1 {
     opacity: 0.9;
     text-align: center;
     display: inline-block;
-    font-size: 0.6em;
+    font-size: 0.8em;
     line-height: 1.3em;
 }
 
@@ -879,13 +883,11 @@ h1 {
 
 .site-project-header h1 {
     line-height: 0.9em;
-    width: 80%;
     margin: 1em auto 0.5em auto;
 }
 
 .site-project-header h2 {
     margin: 0 auto;
-    width: 60%;
     padding: 0;
     font-weight: 200;
     line-height: 1.3em;
@@ -900,4 +902,23 @@ h1 {
 /* MAXIMISING HEIGHT */
 body {
     min-height: 100vh;
+}
+
+
+.projects-page .project-grid h3 {
+    color: var(--color-primary);
+}
+
+.site-project-single-section .project-main-text {
+    padding: 0em;
+    clear: both;
+    overflow: auto;
+}
+
+
+
+/** SINGLE PAGE, EVEN SMALLER GRID */
+
+.site-project-single-section .u-container {
+    max-width: calc(0.6 * var(--grid-max-width));
 }

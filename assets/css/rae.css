@@ -2,7 +2,7 @@
     background-color: var(--alternative-color);
     color: var(--main-color);
     padding: 2rem;
-    margin: 2rem 5em 2rem 5em;
+    margin: 2rem 0;
     border-radius: 16px;
 }
 
@@ -15,8 +15,8 @@ blockquote {
 }
 
 blockquote > p {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    padding: 0;
+    margin: 0;
     font-size: larger;
     color:#333333;
 }
