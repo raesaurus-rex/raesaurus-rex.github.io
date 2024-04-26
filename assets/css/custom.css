@@ -298,6 +298,7 @@ ul[role="presentation"] li {
 
 .project-card h3 {
     padding: 0.5em 0 0.75em 0;
+    font-size: var(--step-1);
     margin: 0;
     color: var(--color-contrast);
 }
@@ -972,11 +973,6 @@ body {
 
 .site-project-single-section .u-container:not(.section-carousel) {
     max-width: calc(0.6 * var(--grid-max-width));
-}
-
-.site-project-single-section h2 {
-    padding-bottom: 0rem;
-    margin: 0;
 }
 
 .site-project-single-section h3 {
