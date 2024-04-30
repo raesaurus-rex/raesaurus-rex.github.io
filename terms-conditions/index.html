@@ -1,31 +1,140 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
+    <title>Raemarie Lee Design</title>
+    <meta name="generator" content="Eleventy">
+
+    <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Protected Page</title>
-    <script type="module">var i={};Object.defineProperty(i,"__esModule",{value:!0});function y(r,e,t){var c;if(t===void 0&&(t={}),!e.codes){e.codes={};for(var s=0;s<e.chars.length;++s)e.codes[e.chars[s]]=s}if(!t.loose&&r.length*e.bits&7)throw new SyntaxError("Invalid padding");for(var a=r.length;r[a-1]==="=";)if(--a,!t.loose&&!((r.length-a)*e.bits&7))throw new SyntaxError("Invalid padding");for(var o=new((c=t.out)!=null?c:Uint8Array)(a*e.bits/8|0),n=0,u=0,l=0,f=0;f<a;++f){var E=e.codes[r[f]];if(E===void 0)throw new SyntaxError("Invalid character "+r[f]);u=u<<e.bits|E,n+=e.bits,n>=8&&(n-=8,o[l++]=255&u>>n)}if(n>=e.bits||255&u<<8-n)throw new SyntaxError("Unexpected end of data");return o}function h(r,e,t){t===void 0&&(t={});for(var c=t,s=c.pad,a=s===void 0?!0:s,o=(1<<e.bits)-1,n="",u=0,l=0,f=0;f<r.length;++f)for(l=l<<8|255&r[f],u+=8;u>e.bits;)u-=e.bits,n+=e.chars[o&l>>u];if(u&&(n+=e.chars[o&l<<e.bits-u]),a)for(;n.length*e.bits&7;)n+="=";return n}var L={chars:"0123456789ABCDEF",bits:4},K={chars:"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",bits:5},O={chars:"0123456789ABCDEFGHIJKLMNOPQRSTUV",bits:5},$={chars:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",bits:6},P={chars:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_",bits:6},F={parse:function(e,t){return y(e.toUpperCase(),L,t)},stringify:function(e,t){return h(e,L,t)}},I={parse:function(e,t){return t===void 0&&(t={}),y(t.loose?e.toUpperCase().replace(/0/g,"O").replace(/1/g,"L").replace(/8/g,"B"):e,K,t)},stringify:function(e,t){return h(e,K,t)}},k={parse:function(e,t){return y(e,O,t)},stringify:function(e,t){return h(e,O,t)}},B={parse:function(e,t){return y(e,$,t)},stringify:function(e,t){return h(e,$,t)}},G={parse:function(e,t){return y(e,P,t)},stringify:function(e,t){return h(e,P,t)}},H={parse:y,stringify:h};i.base16=F;i.base32=I;i.base32hex=k;i.base64=B;i.base64url=G;i.codec=H;i.base16;i.base32;i.base32hex;const J=i.base64;i.base64url;i.codec;function b(r){const e=document.querySelector(r);if(e)return e;throw new Error(`No element found with selector: "${r}"`)}const d=b("input"),m=b("header"),j=b("#msg"),g=b("form"),v=b("#load");let N,D,M,T;document.addEventListener("DOMContentLoaded",async()=>{const r=b("pre[data-i]");if(!r.innerText){d.disabled=!0,S("No encrypted payload.");return}T=Number(r.dataset.i);const e=J.parse(r.innerText);if(N=e.slice(0,32),D=e.slice(32,32+16),M=e.slice(32+16),location.hash){const t=new URL(window.location.href);d.value=t.hash.slice(1),t.hash="",history.replaceState(null,"",t.toString())}sessionStorage.k||d.value?await U():(w(v),x(g),m.classList.replace("hidden","flex"),d.focus())});var A,C;const p=((A=window.crypto)==null?void 0:A.subtle)||((C=window.crypto)==null?void 0:C.webkitSubtle);p||(S("Please use a modern browser."),d.disabled=!0);function x(r){r.classList.remove("hidden")}function w(r){r.classList.add("hidden")}function S(r){j.innerText=r,m.classList.add("red")}g.addEventListener("submit",async r=>{r.preventDefault(),await U()});async function R(r){return new Promise(e=>setTimeout(e,r))}async function U(){v.lastElementChild.innerText="Decrypting...",w(m),w(g),x(v),await R(60);try{const r=await V({salt:N,iv:D,ciphertext:M,iterations:T},d.value);document.write(r),document.close()}catch(r){w(v),x(g),m.classList.replace("hidden","flex"),sessionStorage.k?sessionStorage.removeItem("k"):S("Wrong password."),d.value="",d.focus()}}async function q(r,e,t){const c=new TextEncoder,s=await p.importKey("raw",c.encode(e),"PBKDF2",!1,["deriveKey"]);return await p.deriveKey({name:"PBKDF2",salt:r,iterations:t,hash:"SHA-256"},s,{name:"AES-GCM",length:256},!0,["decrypt"])}async function Q(r){return p.importKey("jwk",r,"AES-GCM",!0,["decrypt"])}async function V({salt:r,iv:e,ciphertext:t,iterations:c},s){const a=new TextDecoder,o=sessionStorage.k?await Q(JSON.parse(sessionStorage.k)):await q(r,s,c),n=new Uint8Array(await p.decrypt({name:"AES-GCM",iv:e},o,t));if(!n)throw"Malformed data";return sessionStorage.k=JSON.stringify(await p.exportKey("jwk",o)),a.decode(n)}</script>
-    <style>*,:before,:after{box-sizing:border-box;border:0}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif}body{margin:0;line-height:inherit}a{color:inherit;text-decoration:inherit}button,input{font-family:inherit;font-size:100%;line-height:inherit;color:inherit;margin:0;padding:0}button{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}p{margin:0}input::-moz-placeholder,input:-ms-input-placeholder,input::placeholder{opacity:1}:disabled{cursor:default}svg{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}:root{--gray-800: #292524;--gray-700: #433f3b}html,body{color:#fff;font-weight:300}main{background:#000;height:100vh;letter-spacing:.025em;padding:4rem 1rem 1rem}.box{max-width:24rem;width:100%;background:var(--gray-800);padding:1rem;border-radius:.125rem;margin:0 auto;height:170px}header{align-items:center;margin-bottom:1rem;gap:.5rem}#pwd{font-weight:200;border-radius:.125rem;background:var(--gray-800);border:1px solid var(--gray-700);padding:.5rem 1rem;width:100%;color:#fff}#pwd:focus{outline:2px solid transparent;outline-offset:2px}.hidden{display:none!important}.flex{display:flex}#load{display:flex;align-items:center;justify-content:center;height:100%}.red{color:#dc2626}.spinner{pointer-events:none;width:1.5rem;height:1.5rem;border:3px solid transparent;border-color:#fff;border-right-width:2px;border-radius:50%;-webkit-animation:spin .5s linear infinite;animation:spin .5s linear infinite;margin-right:.5rem}#load p:last-child{font-size:1.125rem;line-height:1.75rem}[type=submit]{border-radius:.125rem;color:#000;background:#fff;width:100%;padding:.5rem 0;margin-top:1rem;cursor:pointer}@keyframes spin{to{transform:rotate(360deg)}}#locked{width:1.5rem;height:1.5rem}#msg{font-size:.875rem;line-height:1.25rem}@media (min-width: 475px){main{padding-top:10rem}#msg,a{font-size:1rem;line-height:1.5rem}}</style>
-</head>
-<body>
-    <main>
-        <div class="box">
-            <div id="load">
-                <p class="spinner"></p><p>Loading...</p>
-            </div>
-            <header class="hidden">
-                <svg id="locked" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
-                </svg>
-                <p id="msg">This page is password protected.</p>
-            </header>
-            <form class="hidden">
-                <input type="password" id="pwd" name="pwd" aria-label="Password" autofocus />
-                <input type="submit" value="Submit">
-            </form>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/vendor/font-awesome/css/brands.min.css">
+    <!-- Stylesheets -->
+    <link href="/assets/css/utopia.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/rae.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/FavIcon.png" type="image/x-icon">
+    <link rel="icon" href="/assets/FavIcon.png" type="image/x-icon">
+
+    <!-- OG TAGS -->
+
+    <meta property="og:title" content="Raemarie Lee Design">
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://raemarielee.me">
+    <meta property="og:image" content="https://raemarielee.me/assets/preview.png">
+
+    <!-- Metatags -->
+    <meta name="title" content="Raemarie Lee Design">
+    <meta name="description" content="from advertising wordsmith to end-user advocate">
+    <meta name="keywords" content="design, designer, figma, ux, ui, copywriting">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Raemarie Lee">
+
+
+
+  <!-- CUSTOM FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+  
+    <nav class="site-navigation">
+      <div class="u-container">
+        <div class="navbar-brand" href="/">
+        <a href="/">Raemarie Lee</a>
+        <button class="mobile-menu" aria-label="Toggle Menu">
+          <i class="fa fa-bars"></i>
+        </button>
+
         </div>
-    </main>
-    <pre class="hidden" data-i="2e+6">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</pre>
-</body>
+      
+          <ul class="navigation-links" role="presentation" data-hidden="1">
+            
+            <li class="nav-item">
+              
+                <a class="nav-link" href="/projects"><span>Projects</span></a> 
+               
+            </li>
+            
+            <li class="nav-item">
+              
+                <a class="nav-link" href="/about"><span>About</span></a> 
+               
+            </li>
+            
+            
+            <li><a href="https://www.linkedin.com/in/raemarie-lee-13986b16/"><span><i class="fa fa-brands fa-linkedin-in"></i></span></a></li>
+            
+            <li><a href="mailto:raemarielee@gmail.com"><span><i class="fa fa-envelope"></i></span></a></li>
+            
+          </ul>
+      </div>
+    </nav>
+  
+
+  
+    <section class="site-project-single-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="site-project-single">
+              <h1>
+                Terms &amp; Conditions
+              </h1>
+              <div class="site-project-single-description">
+                <h4>What is Lorem Ipsum?</h4>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+<h4>What is Lorem Ipsum?</h4>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+<h4>What is Lorem Ipsum?</h4>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+<h4>What is Lorem Ipsum?</h4>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+<h4>What is Lorem Ipsum?</h4>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  
+   
+  
+
+  
+    <footer class="site-footer section-primary">
+      <div class="u-container">
+          <p>© Copyright 2024 - Raemarie Lee</p>
+        </div>
+      
+    </footer>
+  
+    <script>
+      const navLinks = document.querySelector('.mobile-menu').addEventListener('click', () => {
+        const navLinks = document.querySelector('.navigation-links')
+        if (navLinks.dataset.hidden) {
+          delete navLinks.dataset.hidden //= ""
+        } else {
+          navLinks.dataset.hidden = 1
+        }
+      })
+    </script>
+  </body>
 </html>
+
