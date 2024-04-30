@@ -46,7 +46,7 @@ blockquote > p {
 }
 
 .toggle-label:hover {
-    text-shadow: 0 0 5px var(--color-secondary);
+    text-shadow: 0 0 5px #fff;
 }
 
 .toggle:checked + .toggle-label + .toggle-content {
