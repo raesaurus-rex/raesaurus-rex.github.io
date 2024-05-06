@@ -7,7 +7,7 @@
 
     --color-secondary: #EE82EE;
 
-    --color-text: #FFF;
+    --color-text: #FFFAFA;
 
     --grid-elements: 3;
 
@@ -15,7 +15,7 @@
     --main-color: var(--color-secondary);
     --alternative-color: var(--color-primary);
     --color-contrast: #000;
-    --color-alternative-contrast: #FFF;
+    --color-alternative-contrast: #FFFAFA;
     
 }
 
@@ -24,7 +24,7 @@ h2 {
 }
 
 .site-navigation {
-    background: #FFF;
+    background: #FFFAFA;
     text-decoration: none;
     color: #000;
     border-bottom: 1px solid var(--color-primary);
@@ -465,7 +465,7 @@ footer.site-footer {
 
 .site-about-header {
     background: var(--color-primary);
-    color: #FFF;
+    color: #FFFAFA;
     padding: 5em 0;
 }
 
@@ -572,7 +572,7 @@ h1 {
     width: 20px;
     aspect-ratio: 1;
     border: 5px solid var(--color-primary);
-    background-color: #FFF;
+    background-color: #FFFAFA;
     /* background-color: var(--color-secondary); */
     position: absolute;
     top: 50%; left: 0;
@@ -619,7 +619,7 @@ h1 {
     --main-color: var(--color-secondary);
     --alternative-color: var(--color-primary);
     --color-contrast: #000;
-    --color-alternative-contrast: #FFF;
+    --color-alternative-contrast: #FFFAFA;
 
 }
 
@@ -631,7 +631,7 @@ h1 {
     overflow: auto;
     --main-color: var(--color-primary);
     --alternative-color: var(--color-secondary);
-    --color-contrast: #FFF;
+    --color-contrast: #FFFAFA;
     --color-alternative-contrast: var(--color-primary);
 }
 
@@ -645,7 +645,7 @@ h1 {
 }
 
 .force-color-white {
-    color: #FFF;
+    color: #FFFAFA;
 }
 
 .site-expertise-list {
@@ -658,7 +658,7 @@ h1 {
 
 
 .force-header-white h2 {
-    color: #FFF;
+    color: #FFFAFA;
 }
 
 .progression-role:hover::after {
@@ -903,7 +903,7 @@ h1 {
     display: inline-block;
     font-size: 0.8em !important;
     line-height: 1.3em;
-    padding-top: 1rem;
+    padding-top: 0.2em;
 }
 
 .image-with-caption {
@@ -954,6 +954,7 @@ h1 {
 /* MAXIMISING HEIGHT */
 body {
     min-height: 100vh;
+    background: #FFFAFA;
 }
 
 
@@ -978,4 +979,8 @@ body {
 .site-project-single-section h3 {
     padding-bottom: 0rem;
     margin-bottom: 0.5em;
+}
+
+.section-timeline h2 {
+    color: var(--color-primary);
 }
