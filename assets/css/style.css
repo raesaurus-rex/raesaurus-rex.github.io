@@ -24,7 +24,16 @@ body, html {
 
 html {
   overflow-x: hidden;
+  max-width: 100vw;
 }
+
+_::-webkit-full-page-media, _:future, :root body, :root html {
+  clear: both;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
